@@ -8,6 +8,7 @@ const logger = require('morgan');
 const testJwtRouter = require('./controllers/test-jwt');
 const authRouter = require('./controllers/auth');
 const usersRouter = require('./controllers/users');
+const hootsRouter = require('./controllers/hoots');
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -23,6 +24,7 @@ app.use(logger('dev'));
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/test-jwt', testJwtRouter);
+app.use('/hoots', hootsRouter);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Express API with JWT Authentication!');
